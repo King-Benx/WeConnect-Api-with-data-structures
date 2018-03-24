@@ -1,5 +1,5 @@
 # WeConnect-Api-with-data-structures
-[![Build Status](https://travis-ci.org/King-Benx/WeConnect-Api-with-data-structures.svg?branch=develop)](https://travis-ci.org/King-Benx/WeConnect-Api-with-data-structures)
+[![Build Status](https://travis-ci.org/King-Benx/WeConnect-Api-with-data-structures.svg?branch=develop)](https://travis-ci.org/King-Benx/WeConnect-Api-with-data-structures) [![Coverage Status](https://coveralls.io/repos/github/King-Benx/WeConnect-Api-with-data-structures/badge.svg?branch=develop)](https://coveralls.io/github/King-Benx/WeConnect-Api-with-data-structures?branch=develop)
 ## DESCRIPTION
 WeConnect provides a platform that brings businesses and individuals together. This platform 
 creates awareness for businesses and gives the users the ability to write reviews about the 
