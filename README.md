@@ -14,7 +14,7 @@ Visit develop branch
 2. A WEB APPLICATION
 
 ## FlOW OF WEB APPLICATION
-![wireframe](https://github.com/King-Benx/WeConnect/blob/feature-api/designs/wireframes/wireframes.png)
+![wireframe](https://github.com/King-Benx/WeConnect-ui-designs/blob/master/designs/wireframes/wireframes.png)
 
 ## LINK TO WeConnect on Github Pages
 ### [WeConnect](https://king-benx.github.io/)
