@@ -32,14 +32,12 @@ def token_required(f):
 def login():
     # This logs a registered user into system and creates a unique token for them
     auth = request.authorization
-
     if not auth or not auth.username and auth.password:
         return make_response(
             "Could not verify", 401, {
                 'WWW-Authenticate':
                 'Basic Realm="url_for(\'api.login\',_external=True)"'
             })
-
     user = User.login(auth.username, auth.password)
     if not user:
         return make_response(
