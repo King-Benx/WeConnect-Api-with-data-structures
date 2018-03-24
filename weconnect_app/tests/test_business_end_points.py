@@ -24,7 +24,7 @@ class TestBusinessEndPoints(unittest.TestCase):
 
     def test_update_business_route(self):
         response = self.client.put(
-            url_for('api.update_business',businessId=1, _external=True),
+            url_for('api.update_business', businessId=1, _external=True),
             data=json.dumps({
                 "name": "",
                 "location": "soroti",
@@ -33,11 +33,9 @@ class TestBusinessEndPoints(unittest.TestCase):
             }),
             content_type='application/json')
         self.assertTrue(response.status_code, 201)
-    
+
     def test_delete_business_route(self):
         response = self.client.delete(
-            url_for('api.delete_business',businessId=1, _external=True),
+            url_for('api.delete_business', businessId=1, _external=True),
             content_type='application/json')
         self.assertTrue(response.status_code, 201)
-        
-        

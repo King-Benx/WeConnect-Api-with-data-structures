@@ -10,7 +10,7 @@ class TestUserEndPoints(unittest.TestCase):
         self.client = self.app.test_client()
 
     def test_user_registration_route(self):
-        # Tests that a user is successfully logged 
+        # Tests that a user is successfully logged
         response = self.client.post(
             url_for('api.register_new_user', _external=True),
             data=json.dumps({
@@ -29,14 +29,14 @@ class TestUserEndPoints(unittest.TestCase):
             }),
             content_type='application/json')
         self.assertTrue(response.status_code, 201)
-    
+
     def test_login_route(self):
         # Tests that the login route returns a 200 response
         response = self.client.post(
             url_for('api.logout_user', _external=True),
             data=json.dumps({
                 "username": "test",
-                "password":"pass"
+                "password": "pass"
             }),
             content_type='application/json')
         self.assertTrue(response.status_code, 200)

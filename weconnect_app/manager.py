@@ -16,10 +16,11 @@ def run_test():
     tests = unittest.TestLoader().discover('tests')
     unittest.TextTestRunner(verbosity=2).run(tests)
 
+
 @manager.command
 def run_coverage():
     """Run tests with coverage"""
-    cov =  coverage.coverage(branch=True, include='app/*')
+    cov = coverage.coverage(branch=True, include='app/*', omit='*/__init__.py')
     cov.start()
     tests = unittest.TestLoader().discover('tests')
     unittest.TextTestRunner(verbosity=2).run(tests)
@@ -28,9 +29,10 @@ def run_coverage():
     print('Test Coverage Summary')
     cov.report()
     basedir = os.path.abspath(os.path.dirname(__file__))
-    coverage_dir = os.path.join(basedir,'coverage')
+    coverage_dir = os.path.join(basedir, 'coverage')
     cov.html_report(directory=coverage_dir)
     cov.erase()
+
 
 @manager.command
 def deploy():
