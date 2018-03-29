@@ -6,8 +6,9 @@ creates awareness for businesses and gives the users the ability to write review
 businesses they have interacted with.
 
 ## FEATURES THAT THE APPLICATION ENCOMPASSES
-1. An API
-2. A WEB APPLICATION
+1. An API using data structures
+2. An API using postgres 
+3. A Website
 
 ## FlOW OF WEB APPLICATION
 ![wireframe](https://github.com/King-Benx/WeConnect-ui-designs/blob/master/designs/wireframes/wireframes.png)
@@ -15,6 +16,8 @@ businesses they have interacted with.
 ## LINK TO WeConnect on Github Pages
 ### [WeConnect](https://king-benx.github.io/)
 
+## LINK TO WeConnect API using data structures
+### [WeConnect-API-with-data-structures](https://evening-gorge-56404.herokuapp.com)
 ## BUILT WITH
 * Bootstrap 3 - The Web framework used
 * Jquery - JavaScript Library used
