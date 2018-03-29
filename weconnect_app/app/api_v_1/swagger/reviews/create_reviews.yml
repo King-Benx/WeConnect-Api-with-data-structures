@@ -45,6 +45,7 @@ definitions:
     properties:
       review:
         type: string
+        example: "review 1"
     
 responses:
   201:

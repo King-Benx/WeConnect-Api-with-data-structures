@@ -41,13 +41,16 @@ definitions:
     properties:
       name:
         type: string
+        example: "business 1"
       location:
         type: string
+        example: "location 1"
       category:
         type: string
+        example: "category 1"
       description:
         type: string  
-    
+        example: "description of business 1"
 responses:
   201:
     description: Business successfully created
