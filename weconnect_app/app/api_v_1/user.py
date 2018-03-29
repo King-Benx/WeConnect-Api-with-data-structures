@@ -1,4 +1,5 @@
 from flask import request, url_for, session
+from flasgger import swag_from
 from . import api
 from ..models import User
 from .. import known_usernames, known_business_ids, businesses, users, reviews, known_review_ids, known_user_ids, users
@@ -7,8 +8,9 @@ from ..functions import make_json_reply
 
 
 @api.route('/api/v1/auth/register', methods=['POST'])
+@swag_from('swagger/users/create_user.yml')
 def register_new_user():
-    # register new user into the system
+    """register new user into the system"""
     data = request.get_json(force=True)
     if len(data.keys()) == 3:
         username = data['username']
@@ -35,11 +37,11 @@ def register_new_user():
             'message', 'Couldn\'t create user, some fields missing'), 400
 
 
-# More work to be done on signing out
 @api.route('/api/v1/auth/logout', methods=['POST'])
+@swag_from('swagger/users/logout_user.yml')
 @token_required
 def logout_user(current_user):
-    # This logs out user from the application
+    """This logs out user from the application"""
     request.authorization = None
     current_user = None
     global users
@@ -66,9 +68,10 @@ def logout_user(current_user):
 
 
 @api.route('/api/v1/auth/reset-password', methods=['POST'])
+@swag_from('swagger/users/reset_password.yml')
 @token_required
 def reset_password(current_user):
-    # This resets the password of a user back to password if an email has been given
+    """ This resets the password of a user back to password if an email has been given"""
     data = request.get_json()
     if (len(data.keys()) == 2):
         username = data['username']

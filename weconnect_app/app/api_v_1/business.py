@@ -1,4 +1,5 @@
 from flask import request, url_for, session, jsonify
+from flasgger import swag_from
 from . import api
 from ..models import Business, User
 from .. import known_business_ids, businesses
@@ -7,9 +8,10 @@ from ..functions import make_json_reply
 
 
 @api.route('/api/v1/businesses', methods=['POST'])
+@swag_from('swagger/businesses/create_business.yml')
 @token_required
 def register_business(current_user):
-    # register new business into the system
+    """register new business into the system"""
     data = request.get_json()
     if data:
         if (len(data.keys()) == 4):
@@ -32,16 +34,29 @@ def register_business(current_user):
 
 
 @api.route('/api/v1/businesses/<businessId>', methods=['PUT'])
+@swag_from('swagger/businesses/update_business.yml')
 @token_required
 def update_business(current_user, businessId):
-    # update business
-    if int(businessId) in known_business_ids:
+    """update business"""
+    if int(businessId) in known_business_ids and businessesId is not None:
         data = request.get_json()
         business_id = int(businessId)
-        name = data['name']
-        location = data['location']
-        category = data['category']
-        description = data['description']
+        if 'name' in data.keys():
+            name = data['name']
+        else:
+            name = ''
+        if 'location' in data.keys():
+            location = data['location']
+        else:
+            location = ''
+        if 'category' in data.keys():
+            category = data['category']
+        else:
+            category = ''
+        if 'description' in data.keys():
+            description = data['description']
+        else:
+            description = ''
         user_id = int(User.get_user_id_by_username(current_user[0]))
         status = Business.update_business(user_id, business_id, name, location,
                                           category, description)
@@ -56,9 +71,10 @@ def update_business(current_user, businessId):
 
 
 @api.route('/api/v1/businesses/<businessId>', methods=['DELETE'])
+@swag_from('swagger/businesses/delete_business_by_id.yml')
 @token_required
 def delete_business(current_user, businessId):
-    # delete business by id
+    """delete business by id"""
     business_id = int(businessId)
     if business_id in known_business_ids:
         business_to_be_deleted = Business.get_business_by_id(business_id)
@@ -68,7 +84,7 @@ def delete_business(current_user, businessId):
         if status:
             return make_json_reply(
                 'message',
-                'successfully deleted business' + str(business_name)), 200
+                'successfully deleted business ' + str(business_name)), 200
         else:
             return make_json_reply(
                 'message', 'Failure deleting business' + str(business_name))
@@ -77,21 +93,23 @@ def delete_business(current_user, businessId):
 
 
 @api.route('/api/v1/businesses', methods=['GET'])
+@swag_from('swagger/businesses/retrieve_all_businesses.yml')
 @token_required
 def retrieve_all_businesses(current_user):
-    # retrieve all businesses
+    """ retrieve all businesses """
     if businesses:
-        return jsonify(Business.get_all_businesses()), 200
+        return jsonify('Businesses',Business.get_all_businesses()), 200
     else:
         return make_json_reply(
             'message', 'No businesses registered currently, register one at ' +
-            str(url_for('api.register_business', _external=True))), 200
+            str(url_for('api.register_business', _external=True))), 404
 
 
 @api.route('/api/v1/businesses/<businessId>', methods=['GET'])
+@swag_from('swagger/businesses/retrieve_business_by_id.yml')
 @token_required
 def retrieve_a_business(current_user, businessId):
-    # retrieve a single businesses
+    """retrieve a single businesses """
     if int(businessId) in known_business_ids:
         specific_business = Business.get_business_by_id(int(businessId))
         information = {
@@ -102,7 +120,7 @@ def retrieve_a_business(current_user, businessId):
             "description": specific_business[4]
         }
         if information:
-            return jsonify(information), 200
+            return jsonify('Business',information), 200
         else:
             return make_json_reply(
                 'message',

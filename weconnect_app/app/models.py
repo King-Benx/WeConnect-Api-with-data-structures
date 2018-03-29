@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 def generate_random_number():
-    # create a random number generator function
+    """ create a random number generator function"""
     return random.randint(1, 1000)
 
 
@@ -38,7 +38,7 @@ class User:
             known_usernames.append({'username': self.username, 'id': self.id})
 
     def generate_user_id(self):
-        # generate a unique user id for a new user
+        """generate a unique user id for a new user"""
         global known_user_ids
         x = generate_random_number()
         if x not in known_user_ids:
@@ -49,7 +49,7 @@ class User:
 
     @staticmethod
     def generate_password(password):
-        # generate a hashed password
+        """generate a hashed password"""
         return generate_password_hash(password)
 
     def verify_password(self, password):
@@ -58,14 +58,14 @@ class User:
 
     @staticmethod
     def get_user(user_id):
-        # get a user by id
+        """ get a user by id"""
         for user in users:
             if user_id in user.keys():
                 return user[user_id]
 
     @staticmethod
     def login(username, password):
-        # authenticate user
+        """ authenticate user"""
         for known_user in known_usernames:
             if known_user['username'] == username:
                 user_id = known_user['id']
@@ -76,12 +76,12 @@ class User:
 
     @staticmethod
     def logout():
-        # logout user from system
+        """logout user from system"""
         return True
 
     @staticmethod
     def get_user_id_by_username(username):
-        # get a user by username
+        """ get a user by username"""
         for known_user in known_usernames:
             if known_user['username'] == username:
                 user_id = known_user['id']
@@ -89,7 +89,7 @@ class User:
 
     @staticmethod
     def reset_password(username, password):
-        # reset password to "pass" if the username is existant
+        """reset password to "pass" if the username is existant"""
         global users
         for known_user in known_usernames:
             if known_user['username'] == username:
@@ -248,7 +248,7 @@ class Review:
             for review_info in reviews:
                 for value in review_info.values():
                     review_detail = {
-                        'username': User.get_user(value[0])[0],
+                        'Author': User.get_user(value[0])[0],
                         'review': value[2]
                     }
                     review_details.append(review_detail)

@@ -1,4 +1,5 @@
 from flask import request, jsonify, session, url_for
+from flasgger import swag_from
 from . import api
 from ..models import Review, User
 from ..functions import make_json_reply
@@ -7,9 +8,10 @@ from .. import known_business_ids
 
 
 @api.route('/api/v1/businesses/<businessId>/reviews', methods=['POST'])
+@swag_from('swagger/reviews/create_reviews.yml')
 @token_required
 def post_review(current_user, businessId):
-    # create a review for a business
+    """create a review for a business"""
     data = request.get_json()
     if len(data.keys()) == 1:
         user_id = int(User.get_user_id_by_username(current_user[0]))
@@ -31,13 +33,14 @@ def post_review(current_user, businessId):
 
 
 @api.route('/api/v1/businesses/<businessId>/reviews', methods=['GET'])
+@swag_from('swagger/reviews/get_reviews.yml')
 @token_required
 def get_reviews(current_user, businessId):
-    # get reviews for business
+    """get reviews for business"""
     if int(businessId) in known_business_ids:
         reviews = Review.get_review_by_business(int(businessId))
         if reviews:
-            return jsonify(reviews), 200
+            return jsonify('Reviews',reviews), 200
         else:
             return make_json_reply('message', 'No reviews for business'), 200
     else:

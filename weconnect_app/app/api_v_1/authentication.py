@@ -1,6 +1,7 @@
 import jwt
 import datetime
 from flask import jsonify, request, url_for, make_response
+from flasgger import swag_from
 from ..models import User
 from . import api
 from .. import known_usernames, SECRET_KEY
@@ -11,7 +12,7 @@ from ..functions import make_json_reply
 def token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
-        # checks token and creates a current_user object with users information
+        """ checks token and creates a current_user object with users information"""
         token = None
         if 'x-access-token' in request.headers:
             token = request.headers['x-access-token']
@@ -29,8 +30,9 @@ def token_required(f):
 
 
 @api.route('/api/v1/auth/login', methods=['POST'])
+@swag_from('swagger/users/login_user.yml')
 def login():
-    # This logs a registered user into system and creates a unique token for them
+    """ This logs a registered user into system and creates a unique token for them"""
     auth = request.authorization
     if not auth or not auth.username and auth.password:
         return make_response(
@@ -54,7 +56,7 @@ def login():
                 datetime.datetime.utcnow() + datetime.timedelta(minutes=20)
             },
             SECRET_KEY)
-        return make_json_reply('token', token.decode('UTF-8')), 200
+        return make_json_reply('Use Token', token.decode('UTF-8')), 200
     else:
         return make_response(
             "Could not verify! if you are not a user, register otherwise try again"
