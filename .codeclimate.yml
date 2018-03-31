@@ -1,6 +1,8 @@
+checks:
+  complex-logic:
+      config:
+        threshold: 18
 exclude_patterns:
-- "weconnect_app/__pycache__"
-- "weconnect_app/coverage/"
-- "weconnect_app/app/static/"
-- "weconnect_app/app/templates/"
-- "weconnect_app/tests/"
+- "w__pycache__"
+- "coverage/"
+- "tests/"
