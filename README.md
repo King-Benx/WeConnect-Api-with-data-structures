@@ -1,5 +1,5 @@
 # WeConnect-Api-with-data-structures
-[![Build Status](https://travis-ci.org/King-Benx/WeConnect-Api-with-data-structures.svg?branch=develop)](https://travis-ci.org/King-Benx/WeConnect-Api-with-data-structures) 
+[![Build Status](https://travis-ci.org/King-Benx/WeConnect-Api-with-data-structures.svg?branch=develop)](https://travis-ci.org/King-Benx/WeConnect-Api-with-data-structures) [![Maintainability](https://api.codeclimate.com/v1/badges/8c141b4f1e6a3331cde3/maintainability)](https://codeclimate.com/github/King-Benx/WeConnect-Api-with-data-structures/maintainability)
 ## DESCRIPTION
 WeConnect provides a platform that brings businesses and individuals together. This platform 
 creates awareness for businesses and gives the users the ability to write reviews about the 
