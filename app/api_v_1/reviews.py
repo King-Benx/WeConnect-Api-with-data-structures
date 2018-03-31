@@ -7,7 +7,7 @@ from .authentication import token_required
 from .. import known_business_ids
 
 
-@api.route('/api/v1/businesses/<businessId>/reviews', methods=['POST'])
+@api.route('/api/v1/businesses/<int:businessId>/reviews', methods=['POST'])
 @swag_from('swagger/reviews/create_reviews.yml')
 @token_required
 def post_review(current_user, businessId):
@@ -32,7 +32,7 @@ def post_review(current_user, businessId):
                 'cannot create review fro none existant business'), 400
 
 
-@api.route('/api/v1/businesses/<businessId>/reviews', methods=['GET'])
+@api.route('/api/v1/businesses/<int:businessId>/reviews', methods=['GET'])
 @swag_from('swagger/reviews/get_reviews.yml')
 @token_required
 def get_reviews(current_user, businessId):

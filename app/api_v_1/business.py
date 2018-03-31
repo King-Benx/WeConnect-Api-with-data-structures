@@ -33,12 +33,12 @@ def register_business(current_user):
             'message', 'cannot create business due to missing fields'), 400
 
 
-@api.route('/api/v1/businesses/<businessId>', methods=['PUT'])
+@api.route('/api/v1/businesses/<int:businessId>', methods=['PUT'])
 @swag_from('swagger/businesses/update_business.yml')
 @token_required
 def update_business(current_user, businessId):
     """update business"""
-    if int(businessId) in known_business_ids and businessesId is not None:
+    if int(businessId) in known_business_ids and businessId is not None:
         data = request.get_json()
         business_id = int(businessId)
         if 'name' in data.keys():
@@ -70,7 +70,7 @@ def update_business(current_user, businessId):
         return make_json_reply('message', 'Business id does not exist'), 400
 
 
-@api.route('/api/v1/businesses/<businessId>', methods=['DELETE'])
+@api.route('/api/v1/businesses/<int:businessId>', methods=['DELETE'])
 @swag_from('swagger/businesses/delete_business_by_id.yml')
 @token_required
 def delete_business(current_user, businessId):
@@ -105,7 +105,7 @@ def retrieve_all_businesses(current_user):
             str(url_for('api.register_business', _external=True))), 404
 
 
-@api.route('/api/v1/businesses/<businessId>', methods=['GET'])
+@api.route('/api/v1/businesses/<int:businessId>', methods=['GET'])
 @swag_from('swagger/businesses/retrieve_business_by_id.yml')
 @token_required
 def retrieve_a_business(current_user, businessId):
