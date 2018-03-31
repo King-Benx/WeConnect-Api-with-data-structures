@@ -1,17 +1,14 @@
 # WeConnect-Api-with-data-structures
+[![Build Status](https://travis-ci.org/King-Benx/WeConnect-Api-with-data-structures.svg?branch=develop)](https://travis-ci.org/King-Benx/WeConnect-Api-with-data-structures) [![Maintainability](https://api.codeclimate.com/v1/badges/8c141b4f1e6a3331cde3/maintainability)](https://codeclimate.com/github/King-Benx/WeConnect-Api-with-data-structures/maintainability)
 ## DESCRIPTION
 WeConnect provides a platform that brings businesses and individuals together. This platform 
 creates awareness for businesses and gives the users the ability to write reviews about the 
 businesses they have interacted with.
 
-The application uses a non persistent data format to store data 
-
-## CURRENT PROGRESS
-Visit develop branch
-
 ## FEATURES THAT THE APPLICATION ENCOMPASSES
-1. An API
-2. A WEB APPLICATION
+1. An API using data structures
+2. An API using postgres 
+3. A Website
 
 ## FlOW OF WEB APPLICATION
 ![wireframe](https://github.com/King-Benx/WeConnect-ui-designs/blob/master/designs/wireframes/wireframes.png)
@@ -19,6 +16,8 @@ Visit develop branch
 ## LINK TO WeConnect on Github Pages
 ### [WeConnect](https://king-benx.github.io/)
 
+## LINK TO WeConnect API using data structures
+### [WeConnect-API-with-data-structures](https://weconnect-api-data-structures.herokuapp.com)
 ## BUILT WITH
 * Bootstrap 3 - The Web framework used
 * Jquery - JavaScript Library used
