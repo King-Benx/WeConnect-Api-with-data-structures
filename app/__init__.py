@@ -25,8 +25,7 @@ template = {
         },
         "version":
         "1.0.0"
-    },
-    "basePath": "/api",  # base bash for blueprint registration
+    },  
     "schemes": ["http", "https"]
 }
 
