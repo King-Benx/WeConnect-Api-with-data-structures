@@ -31,6 +31,6 @@ checks:
     config:
       threshold: # language-specific defaults. an override will affect all languages.
 exclude_patterns:
-- "w__pycache__"
+- "*__pycache__*"
 - "coverage/"
 - "tests/"
