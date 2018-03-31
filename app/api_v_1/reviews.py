@@ -40,7 +40,7 @@ def get_reviews(current_user, businessId):
     if int(businessId) in known_business_ids:
         reviews = Review.get_review_by_business(int(businessId))
         if reviews:
-            return jsonify('Reviews',reviews), 200
+            return jsonify('Reviews', reviews), 200
         else:
             return make_json_reply('message', 'No reviews for business'), 200
     else:

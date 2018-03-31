@@ -98,7 +98,7 @@ def delete_business(current_user, businessId):
 def retrieve_all_businesses(current_user):
     """ retrieve all businesses """
     if businesses:
-        return jsonify('Businesses',Business.get_all_businesses()), 200
+        return jsonify('Businesses', Business.get_all_businesses()), 200
     else:
         return make_json_reply(
             'message', 'No businesses registered currently, register one at ' +
@@ -120,7 +120,7 @@ def retrieve_a_business(current_user, businessId):
             "description": specific_business[4]
         }
         if information:
-            return jsonify('Business',information), 200
+            return jsonify('Business', information), 200
         else:
             return make_json_reply(
                 'message',
