@@ -3,6 +3,6 @@ python:
   - "3.6"
 # command to install dependencies
 install:
-  - pip install -r weconnect_app/requirements.txt
+  - pip install -r requirements.txt
 # command to run tests
-script: "python weconnect_app/manage.py run_test"
+script: "python manage.py run_test"
