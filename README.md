@@ -17,7 +17,7 @@ businesses they have interacted with.
 ### [WeConnect](https://king-benx.github.io/)
 
 ## LINK TO WeConnect API using data structures
-### [WeConnect-API-with-data-structures](https://evening-gorge-56404.herokuapp.com)
+### [WeConnect-API-with-data-structures](https://weconnect-api-data-structures.herokuapp.com)
 ## BUILT WITH
 * Bootstrap 3 - The Web framework used
 * Jquery - JavaScript Library used
