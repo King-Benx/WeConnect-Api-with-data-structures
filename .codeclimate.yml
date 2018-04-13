@@ -30,6 +30,3 @@ checks:
   identical-code:
     config:
       threshold: 100
-- "*__pycache__*"
-- "coverage/"
-- "tests/"
