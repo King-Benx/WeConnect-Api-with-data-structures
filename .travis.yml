@@ -1,12 +1,16 @@
-env:
-  global:
-    - CC_TEST_REPORTER_ID=22a400186643e4b452cc6c854894c0f44ddf2776860e8bf92394f17b98386fa1
 language: python
 python:
   - "3.6"
 # command to install dependencies
 install:
   - pip install -r requirements.txt
+  - pip install coveralls
 # command to run tests
 script: 
   - python manage.py run_test
+  - coverage run --source='.' --omit='app/main/*'  manage.py run_test
+  - coverage report --omit='app/main/*'
+
+# push report to coveralls.io
+after_success:
+- coveralls
